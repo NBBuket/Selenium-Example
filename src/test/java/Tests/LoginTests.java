@@ -4,6 +4,7 @@ import Pages.LoginPage;
 import Pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,12 +21,11 @@ class LoginTests {
         driver.manage().window().maximize();
         mainPage = new MainPage(driver);
         loginPage = new LoginPage(driver);
+        driver.get("https://hepsiburada.com");
     }
 
     @Test
     void hepsiburadaLoginTest() {
-
-        driver.get("https://hepsiburada.com");
 
         mainPage.waitUntilElementCanBeSeen(mainPage.myAccount);
         mainPage.clickTheButton(mainPage.myAccount);
@@ -37,6 +37,11 @@ class LoginTests {
         loginPage.waitUntilElementCanBeSeen(loginPage.loginButton);
         loginPage.clickTheButton(loginPage.loginButton);
     }
+
+   /* @Test
+    void hepsiBuradaSearchTest() {
+
+    }*/
 
   // normally there is an afterEach annotation here, but it gives warning there
 }
